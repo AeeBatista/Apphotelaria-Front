@@ -1,3 +1,4 @@
+import { loginRequest } from "../api/authAPI.js";
 import LoginForm from "../components/LoginForm.js";
 import Navbar from "../components/NavBar.js";   
 
@@ -8,10 +9,32 @@ export default function renderLoginPage(){
     const navbar = Navbar();
     nav.appendChild(navbar);
 
+    const formulario = Form();
+    const  contentForm = formulario.querySelector('form');
 
 
-    const divRoot = document.getElementById('root');
-    divRoot.innerHTML = '';
+    //Inputs e botão presentes no form
+    const inputEmail = contentForm.querySelector('input[type="email"]');
+    const inputSenha = contentForm.querySelector('input[type=password"]');
+    const btn = contentForm.querySelector('button[type=submit"]');
+
+    //Monitora o clique no botão para acionar um evento de submeter os dados do form
+    contentForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = inputEmail.value.trim();
+      const senha = inputSenha.value.trim();  
+
+      try{
+        const result = await loginRequest(email, senha);
+        console.log("Login realizado com sucesso!");
+        window.location.pathname = "/home";
+      }
+      catch{
+        console.log("Erro inesperado!")
+      }
+    })
+
+    
 
     const titulo = document.createElement('h2');
     titulo.textContent = 'Login';
@@ -25,14 +48,14 @@ export default function renderLoginPage(){
     container.style.width = '100%'; //Aplicada a largura de 100% na div container para ocupar a tela
     container.style.maxWidth = '400px'; //Até que atinja o máximo de 400px
    
-    const formulario = LoginForm();
+   
     const btnCadastrar = document.createElement('button');
     btnCadastrar.textContent = "Crie uma conta";
     btnCadastrar.className = 'btn btn-link mt-2 text-center';
 
     btnCadastrar.addEventListener('click', (e) => {
         e.preventDefault();
-        window.location.href = '#/cadastro';
+        window.location.href = "cadastro";
     });
    
     container.appendChild(titulo);

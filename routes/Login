@@ -1,0 +1,15 @@
+<?php
+    require_once __DIR__ ."../controllers/authenticController.php";
+
+    if($_SERVER['REQUEST_METHOD'] === "POST"){
+        $data = json_decode(file_get_contents('php://input'), true);
+        authentiqueController::login($con,$data);
+    }else{
+        jsonResponse([
+            'status'=>'erro',
+            'message'=>'método não permetido'
+        ], 405)
+    }
+
+
+?>

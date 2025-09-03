@@ -44,7 +44,7 @@ export default function renderCadastroPage() {
     
     btnVoltar.addEventListener('click', (e) => {
         e.preventDefault();
-        window.location.href = '#/login';
+        window.location.href = "login";
     });
 
     const btnRegister = formulario.querySelector('button');

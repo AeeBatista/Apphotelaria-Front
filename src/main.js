@@ -1,15 +1,15 @@
-import renderCadastroPage from "./pages/Cadastro.js";
-import renderHomePage from "./pages/Home.js";
+import renderCadastroPage from "./pages/cadastro.js";
+import renderHomePage from "./pages/home.js";
 import renderLoginPage from "./pages/login.js";
 
 const routes = {
     "/login": renderLoginPage,
     "/cadastro": renderCadastroPage,
-    "/home": renderHomePage,
+    "/home": renderHomePage
 };
 
 function getPath(){
-    const url = (location.hash || "").replace(/^#/, "").trim();
+    const url = (location.pathname || "").replace("/sitemeuDanilo/", "/").trim();
     return url && url.startsWith("/") ? url : "/home";
 }
 
@@ -19,6 +19,6 @@ function renderRoute() {
     render();
 }
 
-window.addEventListener("hashchange", renderRoute);
+
 
 window.addEventListener('DOMContentLoaded', renderRoute);
