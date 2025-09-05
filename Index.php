@@ -20,8 +20,8 @@ $route = $seguimentos[0] ?? null;
 $subroute = $seguimentos[1] ?? null;
 
 if($route != "api"){
-    // require __DIR__ . "/public/index.html";
-    require_once "teste.php";
+    require __DIR__ . "/public/index.html";
+    //require_once "teste.php";
      exit;
 } 
 elseif ($route === "api"){

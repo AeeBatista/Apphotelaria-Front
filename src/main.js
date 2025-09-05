@@ -9,7 +9,7 @@ const routes = {
 };
 
 function getPath(){
-    const url = (location.pathname || "").replace("/sitemeuDanilo/", "/").trim();
+    const url = (location.pathname || "").replace("/sitemeuMaldonado/", "/").trim();
     return url && url.startsWith("/") ? url : "/home";
 }
 
@@ -21,4 +21,4 @@ function renderRoute() {
 
 
 
-window.addEventListener('DOMContentLoaded', renderRoute);
+document.addEventListener('DOMContentLoaded', renderRoute);
