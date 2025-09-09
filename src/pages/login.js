@@ -1,6 +1,7 @@
-import { loginRequest } from "../api/authAPI.js";
+import { loginRequest, saveToken } from "../api/authAPI.js";
 import Navbar from "../components/NavBar.js";
-import LoginForm from "../components/LoginForm.js";   
+import LoginForm from "../components/LoginForm.js"
+
 
 export default function renderLoginPage(){
     const nav = document.getElementById('navbar');
@@ -9,28 +10,29 @@ export default function renderLoginPage(){
     const navbar = Navbar();
     nav.appendChild(navbar);
 
-   
-    const  contentForm = formulario.querySelector('form');
+    const formulario = LoginForm();
 
+
+    const divRoot = document.getElementById('root');
+    divRoot.innerHTML = '';
 
    
     //Inputs e botão presentes no form
-    const formulario = Form();
-    const inputEmail = contentForm.querySelector('input[type="email"]');
-    const inputSenha = contentForm.querySelector('input[type="senha"]');
+ 
+    const inputEmail = formulario.querySelector('input[type="email"]');
+    const inputSenha = formulario.querySelector('input[type="password"]');
     //const btn = contentForm.querySelector('button[type="submit"]');
 
     //Monitora o clique no botão para acionar um evento de submeter os dados do form
-    contentForm.addEventListener("submit", async (e) => {
+    formulario.addEventListener("submit", async (e) => {
       e.preventDefault();
       const email = inputEmail.value.trim();
       const senha = inputSenha.value.trim();  
 
       try{
         const result = await loginRequest(email, senha);
-        console.log("Login realizado com sucesso!");
         saveToken(result.token);
-        //window.location.pathname = "/home";
+        window.location.pathname = "sitemeuMaldonado/home";
       }
       catch{
         console.log("Erro inesperado!")

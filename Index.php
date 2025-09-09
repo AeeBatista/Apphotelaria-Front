@@ -21,7 +21,7 @@ $subroute = $seguimentos[1] ?? null;
 
 if($route != "api"){
     require __DIR__ . "/public/index.html";
-    //require_once "teste.php";
+    // require_once "teste.php";
      exit;
 } 
 elseif ($route === "api"){

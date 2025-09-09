@@ -9,10 +9,11 @@
         "qtd_cama_casal" => 2,
         "qtd_cama_solteiro" => 3,
         "preco" => 700,
-        "disponivel" => 2
+        "disponivel" => 2,
+        "password" => 123456
     ];
 
-    QuartoController::atualizar($con, $id = 4, $data);
+    // QuartoController::atualizar($con, $id = 4, $data);
 
     //AuthController::login($con, $data);
 
@@ -23,7 +24,7 @@
     //echo var_dump(validateToken($tokenValido));
     
 
-//    echo PasswordController::generateHash($data['password']);
+   echo PasswordController::generateHash($data['password']);
 
     //$hash = ''
     //echo "<br>";

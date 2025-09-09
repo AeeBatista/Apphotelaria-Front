@@ -11,5 +11,22 @@
     font-style: normal;
     font-size: 17px;
 }
-
-
+.hero-frame{
+    height: 70vh;
+    max-width: 1200px; /*limite de largura*/
+    margin: 0 auto;
+    overflow: hidden; /*Impede que a imagem vaze do quadro*/
+    background: #696969; /*Aplicar cor ao fundo quando a img nao completa a tela toda*/
+}
+.hero-img{
+    width: 100%;
+    height: 100%;
+    /*Aplica propriedade cover para que a imagem preencha o quadro*/
+    object-fit: cover;
+    object-position: center; /*centraliza o recorte da imagem*/
+}
+@media(max-width: 576px){
+    .hero-frame{
+        height: 50vh;
+    }
+}
