@@ -77,8 +77,8 @@ export default function Footer(){
  
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2021 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Noturne Royal Company</a>
+    
+    
   </div>
   <!-- Copyright -->
 </footer>

@@ -11,49 +11,55 @@ export default function renderCadastroPage() {
     const divRoot = document.getElementById('root');
     divRoot.innerHTML = '';
 
-
-    // Dentro de divRoot terá uma div chamada container e em container estará o formulario
+    // Criando um container centralizado com Bootstrap
     const container = document.createElement('div');
-    container.className = 'card p-4 shadow-lg'; // Classe do Bootstrap para criar um card
-    container.style.width = '100%'; // Aplicada a largura de 100% na div container para ocupar a tela
-    container.style.maxWidth = '400px'; // Até que atinja o máximo de 400px
-
-    divRoot.appendChild(container); // divRoot contém a nova div
+    container.className = 'd-flex justify-content-center align-items-center vh-100 bg-light';
+    
+    const card = document.createElement('div');
+    card.className = 'card shadow-lg p-4 rounded-4 cadastro-card';
+    card.style.width = '100%';
+    card.style.maxWidth = '400px';
 
     const titulo = document.createElement('h2');
-    titulo.textContent = 'Cadastre-se';
-    titulo.className = 'titulo';
+    titulo.textContent = 'Crie sua conta';
+    titulo.className = 'text-center mb-4 titulo';
 
+    // Campo Nome
     const nome = document.createElement('input');
+    nome.type = "text";
     nome.placeholder = "Digite seu nome";
+    nome.className = "form-control mb-3";
 
-   
-
-
-    const btnVoltar = document.createElement('button');
-    btnVoltar.textContent = "Ja tenho uma conta";
-    btnVoltar.className = 'btn btn-link mt-2 text-center'; // Classe do Bootstrap para estilizar o botão
-
-
-
+    // Importando o form existente
     const formulario = LoginForm();
 
+    // Campo Confirmar Senha
     const confSenha = document.createElement('input');
-    confSenha.placeholder = "senha";
-    confSenha.placeholder = ("Confirme sua senha");
-    
+    confSenha.type = "password";
+    confSenha.placeholder = "Confirme sua senha";
+    confSenha.className = "form-control mb-3";
+
+    // Alterando botão de registrar
+    const btnRegister = formulario.querySelector('button');
+    btnRegister.textContent = "Criar conta";
+    btnRegister.className = "btn btn-primary w-100 py-2";
+
+    // Botão de voltar
+    const btnVoltar = document.createElement('button');
+    btnVoltar.textContent = "Já tenho uma conta";
+    btnVoltar.className = 'btn btn-link w-100 mt-3';
     btnVoltar.addEventListener('click', (e) => {
         e.preventDefault();
         window.location.href = "login";
     });
 
-    const btnRegister = formulario.querySelector('button');
-    btnRegister.textContent = "Criar conta ";
+    // Montagem da tela
+    card.appendChild(titulo);
+    card.appendChild(nome);
+    formulario.querySelector('input[type="password"]').after(confSenha);
+    card.appendChild(formulario);
+    card.appendChild(btnVoltar);
 
-
-    container.appendChild(titulo);
-    container.appendChild(nome); // Adiciona o input de nome ao container
-    formulario.querySelector('input[type="password"]').after(confSenha); // Adiciona o campo de confirmação de senha após o campo de senha
-    container.appendChild(formulario); // Nova div container, já dentro de divRoot, contém o form
-    container.appendChild(btnVoltar); // Adiciona o botão de voltar ao container
+    container.appendChild(card);
+    divRoot.appendChild(container);
 }

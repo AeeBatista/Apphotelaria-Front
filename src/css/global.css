@@ -1,32 +1,120 @@
-.titulo{
+.titulo {
     font-family: "Lato", sans-serif;
     font-weight: 700;
-    font-style: normal;
-    font-style: 25px;
+    font-size: 28px;
+    color: #333;
 }
 
-.btn{
-    font-family: "Lato", sans-serif;
-    font-weight: 700px;
-    font-style: normal;
-    font-size: 17px;
+.cadastro-card {
+    background: white;
+    border: none;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
-.hero-frame{
-    height: 70vh;
-    max-width: 1200px; /*limite de largura*/
-    margin: 0 auto;
-    overflow: hidden; /*Impede que a imagem vaze do quadro*/
-    background: #696969; /*Aplicar cor ao fundo quando a img nao completa a tela toda*/
+
+.cadastro-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
-.hero-img{
-    width: 100%;
-    height: 100%;
-    /*Aplica propriedade cover para que a imagem preencha o quadro*/
-    object-fit: cover;
-    object-position: center; /*centraliza o recorte da imagem*/
+
+input.form-control {
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid #ddd;
 }
-@media(max-width: 576px){
-    .hero-frame{
-        height: 50vh;
-    }
+
+input.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13,110,253,0.25);
+}
+
+.btn-primary {
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.btn-link {
+    font-size: 14px;
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+
+
+/*Cadastro brabo*/
+.hero-frame {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero img {
+  height: 70vh;
+  object-fit: cover;
+  object-position: center;
+  transition: none !important; /* desativa qualquer animação de zoom */
+}
+
+.carousel-item {
+  transition: transform 0.6s ease-in-out; /* apenas slide, sem efeito de zoom */
+}
+
+@media (max-width: 576px) {
+  .hero-img {
+    height: 50vh;
+  }
+}
+
+/* busca no home*/
+.busca-container {
+  max-width: 100%;
+}
+
+.busca-form {
+  gap: 0.5rem;
+  border: 1px solid #ddd;
+}
+
+.busca-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-right: 1px solid #ddd;
+  min-width: 180px;
+}
+
+.busca-item:last-of-type {
+  border-right: none;
+}
+
+.busca-item input {
+  font-size: 0.9rem;
+  background: transparent;
+  outline: none;
+  box-shadow: none !important;
+}
+
+.busca-item input:focus {
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .busca-form {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .busca-item {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    min-width: 100%;
+  }
+  .busca-item:last-of-type {
+    border-bottom: none;
+  }
 }
