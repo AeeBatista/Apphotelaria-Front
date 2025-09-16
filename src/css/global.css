@@ -74,6 +74,9 @@ input.form-control:focus {
 .busca-container {
   max-width: 100%;
 }
+.roomcard{
+  display: flex;
+}
 
 .busca-form {
   gap: 0.5rem;
@@ -91,6 +94,9 @@ input.form-control:focus {
 
 .busca-item:last-of-type {
   border-right: none;
+}
+#root{
+  flex-direction: column;
 }
 
 .busca-item input {
