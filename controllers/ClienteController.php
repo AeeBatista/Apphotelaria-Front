@@ -1,31 +1,32 @@
 <?php
-require_once __DIR__ . "/../models/QuartoModel.php";
+require_once __DIR__ . "/../models/ClienteModel.php";
+require_once "PasswordController.php";
 
-class QuartoController{
+class ClienteController{
 
     public static function criar($con, $data){
-        $result = QuartoModel::criar($con, $data);
+       
+        $result = ClienteModel::criar($con, $data);
+        $data['senha'] = PasswordController::generateHash($data['senha']);
+
         if ($result){
             // acertou zé ruela
-           return jsonResponse(['message'=>"Quarto criado com sucesso"]);
+           return jsonResponse(['message'=>"Cliente inserido com sucesso"]);
         }else{
             // errou barrigudo
-           return jsonResponse(['message'=>"Erro ao criar Quarto!"], 400);
+           return jsonResponse(['message'=>"Erro ao inserir Cliente!"], 400);
         }
-        
     }
     public static function listarTodos($con){
-        $listaQuartos = QuartoModel::listarTodos($con);
-        return jsonResponse($listaQuartos);
+        $listaClientes = ClienteModel::listarTodos($con);
+        return jsonResponse($listaClientes);
     }
-
     public static function buscarPor($con, $id){
-        $buscarQuartos = QuartoModel::buscarPor($con, $id);
-        return jsonResponse($buscarQuartos);
+        $buscarClientes = ClienteModel::buscarPor($con, $id);
+        return jsonResponse($buscarClientes);
     }
-
     public static function deletar($con, $id){
-       $result = QuartoModel::deletar($con, $id);
+       $result = ClienteModel::deletar($con, $id);
         if ($result){
             //acertou zé ruela
           return jsonResponse(['message'=>"Deletado"]);
@@ -33,17 +34,16 @@ class QuartoController{
             //errou barrigudo
         return jsonResponse(['message'=>"Erro ao deletar"], 400);
         }
-
     }
     public static function atualizar($con, $id, $data){
-        $result = QuartoModel::atualizar($con, $id, $data);
+        $result = CLienteModel::atualizar($con, $id, $data);
         if ($result){
             //acertou zé ruela
         return jsonResponse(['message'=>"Atualizado com sucesso"]);
         }else{
             //errou barrigudo
         return jsonResponse(['message'=>"Erro ao atualizar Quarto!"], 400);
-        
+        //}
 
     }
 }

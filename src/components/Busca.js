@@ -6,14 +6,11 @@ export default function Busca() {
     <form class="busca-form d-flex flex-wrap shadow-sm rounded-4 p-2 bg-white">
 
       <!-- Campo Local -->
-      <div class="busca-item flex-grow-1">
-        <label class="form-label small mb-0 text-muted"><i class="bi bi-geo-alt"></i> Para onde você vai?</label>
-        <input type="text" class="form-control border-0" placeholder="Digite o destino">
-      </div>
+      
 
       <!-- Campo Datas -->
       <div class="busca-item position-relative">
-        <label class="form-label small mb-0 text-muted"><i class="bi bi-calendar-event"></i> Datas</label>
+        <label class="form-label small mb-0 text-muted"><i class="bi bi-calendar-event"></i> Data</label>
         <input type="text" id="dataInput" class="form-control border-0" placeholder="Escolha a data" readonly>
         <div id="calendario" class="calendar d-none position-absolute p-3" style="z-index:1000; width: 340px; border-radius: 20px; background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.2);"></div>
       </div>

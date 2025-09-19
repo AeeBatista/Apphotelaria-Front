@@ -1,11 +1,11 @@
-export default function RoomCard() {
+export default function RoomCard(index) {
   const roomcard = document.createElement('div');
 
   roomcard.innerHTML =
     `
       <div class="card" style="width: 18rem;">
 
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div id="carouselExampleControls-$(index)" class="carousel slide" data-bs-ride="carousel">
 
       <div class="carousel-inner shadow rounded-3">
         

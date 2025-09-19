@@ -1,5 +1,5 @@
 <?php
- class QuartoModel{
+ class UsuarioModel{
         public static function listarTodos($con){
             // $sql = "SELECT * FROM quartos";
             // $result = $con->query($sql);
@@ -17,17 +17,15 @@
 
         }
 
-        public static function criar($con, $data){
-             $sql = "INSERT INTO quartos(nome, numero_quarto,qtd_cama_casal,qtd_cama_solteiro,preco,disponivel) VALUES (?,?,?,?,?,?)";
+        public static function criar($con,$data){
+             $sql = "INSERT INTO usuarios(nome, email,senha, fk_cargo_id) VALUES (?,?,?,?)";
 
              $stmt = $con->prepare($sql);
-             $stmt->bind_param("siiidi", 
+             $stmt->bind_param("sssi", 
                 $data["nome"],
-                $data["numero_quarto"],
-                $data["qtd_cama_casal"],
-                $data["qtd_cama_solteiro"],
-                $data["preco"],
-                $data["disponivel"]
+                $data["email"],
+                $data["senha"],
+                $data["fk_cargo_id"]
         );
         return $stmt->execute();
 

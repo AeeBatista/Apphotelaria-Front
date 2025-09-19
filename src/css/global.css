@@ -124,3 +124,13 @@ input.form-control:focus {
     border-bottom: none;
   }
 }
+
+.card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(red, green, blue, alpha);
+}
+.card-container .card-title{
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}

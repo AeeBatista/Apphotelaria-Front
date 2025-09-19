@@ -1,31 +1,28 @@
 <?php
-require_once __DIR__ . "/../models/QuartoModel.php";
+require_once __DIR__ . "/../models/PedidoModel.php";
 
-class QuartoController{
+class PedidoController{
 
     public static function criar($con, $data){
-        $result = QuartoModel::criar($con, $data);
+        $result = PedidoModel::criar($con, $data);
         if ($result){
             // acertou zé ruela
-           return jsonResponse(['message'=>"Quarto criado com sucesso"]);
+           return jsonResponse(['message'=>"Pedido criado com sucesso"]);
         }else{
             // errou barrigudo
-           return jsonResponse(['message'=>"Erro ao criar Quarto!"], 400);
+           return jsonResponse(['message'=>"Erro ao criar Pedido!"], 400);
         }
-        
     }
     public static function listarTodos($con){
-        $listaQuartos = QuartoModel::listarTodos($con);
+        $listaPedidos = PedidoModel::listarTodos($con);
         return jsonResponse($listaQuartos);
     }
-
     public static function buscarPor($con, $id){
-        $buscarQuartos = QuartoModel::buscarPor($con, $id);
+        $buscarPedidos = PedidoModel::buscarPor($con, $id);
         return jsonResponse($buscarQuartos);
     }
-
     public static function deletar($con, $id){
-       $result = QuartoModel::deletar($con, $id);
+       $result = PedidoModel::deletar($con, $id);
         if ($result){
             //acertou zé ruela
           return jsonResponse(['message'=>"Deletado"]);
@@ -33,17 +30,16 @@ class QuartoController{
             //errou barrigudo
         return jsonResponse(['message'=>"Erro ao deletar"], 400);
         }
-
     }
     public static function atualizar($con, $id, $data){
-        $result = QuartoModel::atualizar($con, $id, $data);
+        $result = PedidoModel::atualizar($con, $id, $data);
         if ($result){
             //acertou zé ruela
         return jsonResponse(['message'=>"Atualizado com sucesso"]);
         }else{
             //errou barrigudo
         return jsonResponse(['message'=>"Erro ao atualizar Quarto!"], 400);
-        
+        //}
 
     }
 }

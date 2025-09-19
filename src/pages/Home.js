@@ -29,10 +29,10 @@ export default function renderHomePage() {
 
   for (let i = 0; i < 3; i++) {
     const card = RoomCard();
-    cardsGroup.appendChild(card); // ✅ agora adiciona no container correto
+    cardsGroup.appendChild(card); //  agora adiciona no container correto
   }
 
-  divRoot.appendChild(cardsGroup); // ✅ finalmente adiciona o container ao DOM
+  divRoot.appendChild(cardsGroup); // finalmente adiciona o container ao DOM
 
   // Footer
   const foot = document.getElementById('footer');
