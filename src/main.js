@@ -1,7 +1,6 @@
 import renderCadastroPage from "./pages/cadastro.js";
 import renderHomePage from "./pages/home.js";
 import renderLoginPage from "./pages/login.js";
-import renderCarrinhoPage from "./pages/carrinho.js";
 
 const routes = {
     "/login": renderLoginPage,
